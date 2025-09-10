@@ -1,335 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kyaw Wai Yan San | Networking Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kyaw Wai Yan San — Networking & IT Student</title>
+  <meta name="description" content="Portfolio of Kyaw Wai Yan San, Networking & IT student specializing in computer networks and system administration." />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    /* Reset & Base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg:#0d1117; --card:#111827; --muted:#94a3b8; --text:#e6edf3; --brand:#60a5fa; --brand2:#a78bfa;
+      --border:#1f2937;
     }
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      line-height: 1.6;
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background:#0d1117; color:var(--text); line-height:1.6;
     }
-
-    a {
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    h1, h2, h3, h4 {
-      color: #fff;
-    }
-
-    /* Navbar */
+    a {color:inherit; text-decoration:none}
+    .container {max-width:1080px; margin:0 auto; padding:0 20px}
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: #161b22;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position:sticky; top:0; background:rgba(13,17,23,.85); border-bottom:1px solid var(--border); z-index:50;
     }
-
-    header h2 {
-      font-size: 22px;
-      color: #3b82f6;
-      margin: 0;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-
-    nav ul li {
-      margin-left: 20px;
-    }
-
-    nav ul li a {
-      color: #e6edf3;
-      font-weight: 500;
-    }
-
-    nav ul li a:hover {
-      color: #3b82f6;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 80px 60px;
-      flex-wrap: wrap;
-      background: linear-gradient(to right, #0d1117, #161b22);
-    }
-
-    .hero-text {
-      max-width: 500px;
-    }
-
-    .hero-text h1 {
-      font-size: 40px;
-      margin: 0 0 20px;
-    }
-
-    .hero-text span {
-      color: #3b82f6;
-    }
-
-    .hero-text p {
-      margin: 15px 0;
-      color: #9aa4b2;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .btn-primary {
-      background: #3b82f6;
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid #3b82f6;
-      color: #3b82f6;
-    }
-
-    .hero-img img {
-      width: 280px;
-      border-radius: 20px;
-      object-fit: cover;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Sections */
-    section {
-      padding: 60px;
-    }
-
-    section h2 {
-      font-size: 28px;
-      color: #3b82f6;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    section p {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      color: #9aa4b2;
-    }
-
-    /* Skills */
-    #skills ul {
-      list-style: none;
-      max-width: 400px;
-      margin: auto;
-      padding: 0;
-    }
-
-    #skills ul li {
-      background: #161b22;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 6px;
-      text-align: center;
-    }
-
-    /* Projects Grid */
-    .project-grid {
+    .nav {display:flex; justify-content:space-between; align-items:center; height:64px;}
+    .nav a {padding:8px 12px; color:var(--muted); border-radius:8px;}
+    .nav a:hover {color:var(--text); background:#1e293b;}
+    h1,h2,h3 {margin:0 0 12px}
+    h1 {font-size:40px}
+    h2 {font-size:28px; border-bottom:1px solid var(--border); padding-bottom:8px}
+    section {padding:48px 0}
+   
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      margin-top: 30px;
     }
 
     .card {
-      background: #161b22;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 16px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    .card-body {
+      flex: 1;
     }
 
-    .card h4 {
-      margin-bottom: 10px;
-      font-size: 18px;
+    .card-footer {
+      margin-top: auto;
     }
 
-    .card p {
-      font-size: 14px;
-      color: #9aa4b2;
-      margin-bottom: 15px;
-    }
-
-    .tags {
+    .btn-view {
       display: inline-block;
-      background: #3b82f6;
+      width: 100%;
+      padding: 12px 0;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
       color: #fff;
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-
-    .card a {
-      font-size: 14px;
       font-weight: 600;
-      margin-right: 10px;
-    }
-
-    .card a.live {
-      color: #3b82f6;
-    }
-
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact */
-    #contact p {
-      margin: 10px 0;
-    }
-
-    #contact a {
-      color: #3b82f6;
-    }
-
-    /* Footer */
-    footer {
+      border-radius: 10px;
       text-align: center;
-      padding: 20px;
-      background: #161b22;
-      margin-top: 40px;
-      color: #9aa4b2;
-      font-size: 14px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      letter-spacing: 0.5px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-img {
-        margin-top: 20px;
-      }
-      .hero-img img {
-        width: 200px;
-      }
+    .btn-view:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35), 0 0 12px rgba(96,165,250,0.6);
+      background: linear-gradient(135deg, var(--brand2), var(--brand));
+    }
+
+    ul {margin:0; padding-left:18px}
+    footer {padding:20px 0; text-align:center; color:var(--muted); border-top:1px solid var(--border)}
+
+    /* Contact links styling */
+    .contact-links a {
+      display: inline-block;
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: 16px;
+      transition: color 0.25s ease;
+    }
+    .contact-links a:hover {
+      color: var(--brand);
+    }
+    .contact-links i {
+      margin-right: 8px;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <header>
-    <h2>Kyaw Wai Yan San</h2>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container nav">
+      <div><strong>Kyaw Wai Yan San</strong></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-text">
-      <p>NETWORKING STUDENT • CISCO ENTHUSIAST</p>
-      <h1>Hi, I'm <span>Kyaw Wai Yan San</span>.</h1>
-      <p>I design and implement networking projects using Cisco Packet Tracer, focusing on OSPF, VoIP, and multi-LAN configurations.</p>
-      <a href="#projects" class="btn btn-primary">See Projects</a>
-      <a href="#contact" class="btn btn-secondary">Contact Me</a>
-    </div>
-    <div class="hero-img">
-      <img src="C:\Users\User\Downloads\Professional Photo.jpg" alt="Kyaw Wai Yan San Profile Picture">
-    </div>
-  </div>
+  <main class="container">
+    <!-- About -->
+    <section id="about">
+      <h1>Kyaw Wai Yan San</h1>
+      <p><strong>Networking & IT Student | Internship Applicant</strong></p>
+      <p>
+        Final-year Networking and IT student specializing in computer networks and system administration.
+        Skilled in configuring routers, switches, and firewalls, as well as troubleshooting network issues.
+        Eager to gain hands-on internship experience to apply classroom knowledge in real-world networking environments.
+      </p>
+    </section>
 
-  
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am an undergraduate networking student passionate about building scalable and efficient networks. I enjoy working with Cisco routers and switches, configuring OSPF, VLANs, and VoIP solutions, and documenting practical topologies for real-world scenarios.</p>
-  </section>
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Academic Projects</h2>
+      <div class="projects-grid">
 
-  
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>OSPF Multi-Area Configuration</li>
-      <li>LAN & VLAN Design</li>
-      <li>VoIP and Data Integration</li>
-      <li>Subnetting & IP Addressing</li>
-      <li>Cisco Packet Tracer</li>
-    </ul>
-  </section>
+        <div class="card">
+          <div class="card-body">
+            <h3>Multi-LAN Network Design</h3>
+            <p>Configured multiple LANs with routers and switches using Cisco Packet Tracer. Applied Class C subnetting and established router-to-router communication.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn-view" href="https://github.com/kyawwaiyansan23/Multi-LAN-Network-Design-using-Cisco-Packet-Tracer" target="_blank" rel="noopener">View</a>
+          </div>
+        </div>
 
-  
-  <section class="projects" id="projects">
-    <h2>Academic Projects</h2>
-    <div class="project-grid">
-      <div class="card">
-        <h4>OSPF Multi-Area Network</h4>
-        <p>Designed and implemented OSPF multi-area routing with three routers and multiple subnets to enable efficient inter-area communication.</p>
-        <div class="tags">Networking / Cisco</div><br>
-        <a href="https://github.com/kyawwaiyansan23/OSPF-Multi-Area-Network" class="live" target="_blank">Live</a>
-        <a href="https://github.com/kyawwaiyansan23/OSPF-Multi-Area-Network" target="_blank">Code</a>
+        <div class="card">
+          <div class="card-body">
+            <h3>LAN-Based VoIP & Data Network</h3>
+            <p>Designed a LAN integrating PCs and IP phones to enable both data and VoIP communication in a unified network.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn-view" href="https://github.com/kyawwaiyansan23/LAN-Based-VoIP-and-Data-Communication-Network-Design" target="_blank" rel="noopener">View</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h3>OSPF Multi-Area Network</h3>
+            <p>Created a topology using OSPF with two areas, connecting routers, switches, and subnets for efficient routing.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn-view" href="https://github.com/kyawwaiyansan23/OSPF-Multi-Area-Network" target="_blank" rel="noopener">View</a>
+          </div>
+        </div>
+
       </div>
+    </section>
 
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
       <div class="card">
-        <h4>LAN-Based VoIP and Data Communication</h4>
-        <p>Integrated PCs and IP phones into a LAN to support both data traffic and VoIP services, configured with Cisco Packet Tracer.</p>
-        <div class="tags">VoIP / Cisco</div><br>
-        <a href="https://github.com/kyawwaiyansan23/LAN-Based-VoIP-and-Data-Communication-Network-Design" class="live" target="_blank">Live</a>
-        <a href="https://github.com/kyawwaiyansan23/LAN-Based-VoIP-and-Data-Communication-Network-Design" target="_blank">Code</a>
+        <strong>B.Sc. Information Technology</strong><br>
+        Stamford International University (2022 – Present)<br>
+        GPA: 3.55/4.0
       </div>
-
       <div class="card">
-        <h4>Multi-LAN Network Design</h4>
-        <p>Built a multi-LAN topology with subnetting and inter-router communication using Cisco Packet Tracer to simulate enterprise-level networking.</p>
-        <div class="tags">LAN / Cisco</div><br>
-        <a href="https://github.com/kyawwaiyansan23/Multi-LAN-Network-Design-using-Cisco-Packet-Tracer" class="live" target="_blank">Live</a>
-        <a href="https://github.com/kyawwaiyansan23/Multi-LAN-Network-Design-using-Cisco-Packet-Tracer" target="_blank">Code</a>
+        <strong>Bachelor of Development Studies</strong><br>
+        Yangon University of Economics (2017 – 2019)<br>
+        GPA: 3.2/4.0
       </div>
-    </div>
-  </section>
+    </section>
 
- 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:kyawsanwaiyan@gmail.com">kyawsanwaiyan@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/kyawwaiyansan23" target="_blank">kyawwaiyansan23</a></p>
-  </section>
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <ul>
+          <li>Networking (LAN/WAN, TCP/IP, Routing & Switching)</li>
+          <li>Network Troubleshooting & Configuration</li>
+          <li>Cisco Packet Tracer & Wireshark</li>
+          <li>Firewall & Security Basics</li>
+          <li>HTML & CSS</li>
+          <li>Java</li>
+          <li>MySQL Database</li>
+          <li>Teamwork & Problem-Solving</li>
+        </ul>
+      </div>
+    </section>
 
-  
+    <!-- Languages -->
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="card">
+        <ul>
+          <li>Myanmar (Native)</li>
+          <li>English (Upper Intermediate)</li>
+          <li>Thai (Basic)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>   
+      <div class="contact-links">
+         <p><a href="mailto:kyawsanwaiyan@gmail.com"><i class="fas fa-envelope"></i> kyawsanwaiyan@gmail.com</a></p>
+        <p><a href="tel:+66954838797"><i class="fas fa-phone"></i> +66 95-483-8797</a></p>
+        <p><a href="https://www.linkedin.com/in/kyawwaiyansan23" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+        <p><a href="https://github.com/kyawwaiyansan23" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></p>
+        <p><a href="https://www.instagram.com/trevor_2544" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></p>
+        <p><a href="https://line.me/ti/p/25344095311729200123" target="_blank" rel="noopener"><i class="fab fa-line"></i> Line</a></p>
+       </div>
+    </section>
+  </main>
+
   <footer>
-    © <span id="year"></span> Kyaw Wai Yan San — Networking Portfolio
+    © <span id="year"></span> Kyaw Wai Yan San. All rights reserved.
   </footer>
 
   <script>
